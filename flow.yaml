@@ -1,0 +1,4 @@
+
+appId: com.mbarrera.maestrotestingui
+---
+- assertVisible: "Hello World!"    
