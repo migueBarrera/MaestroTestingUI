@@ -22,10 +22,9 @@ steps:
    curl -Ls "https://get.maestro.mobile.dev" | bash
    export PATH="$PATH":"$HOME/.maestro/bin"
    echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-30;google_apis;x86_64'
-  displayName: 'Bash Script'
-
-- bash: |
+   yes | sdkmanager --licenses
    maestro start-device --platform=android
    maestro test flow.yaml
   displayName: 'Bash Script'
+
 
