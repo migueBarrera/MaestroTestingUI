@@ -21,6 +21,7 @@ steps:
 - bash: |
    curl -Ls "https://get.maestro.mobile.dev" | bash
    export PATH="$PATH":"$HOME/.maestro/bin"
+   echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-30;google_apis;x86_64'
    yes | maestro start-device --platform=android
    
   displayName: 'Bash Script'
