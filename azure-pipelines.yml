@@ -23,9 +23,10 @@ steps:
    export PATH="$PATH":"$HOME/.maestro/bin"
    echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-30;google_apis;x86_64'
    yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
-   adb devices
-   adb -e reboot
-   maestro start-device --platform=android
+   $ANDROID_HOME/avdmanager create avd --force --name testdevice --abi arm64-v8a --package 'system-images;android-30;google_apis;x86_64'
+   cd $ANDROID_HOME/emulator
+   ./emulator -list-avds
+   nohup ./emulator -avd Test_Pixel_2_API_33 -no-snapshot -no-boot-anim -wipe-data &
    maestro test flow.yaml
   displayName: 'Bash Script'
 
