@@ -21,7 +21,7 @@ steps:
 - bash: |
    curl -Ls "https://get.maestro.mobile.dev" | bash
    export PATH="$PATH":"$HOME/.maestro/bin"
-   maestro start-device --platform=android
+   yes | maestro start-device --platform=android
    
   displayName: 'Bash Script'
 
