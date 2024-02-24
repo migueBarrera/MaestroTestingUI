@@ -41,3 +41,9 @@ steps:
     echo "Emulator has finished booting"
     $ANDROID_HOME/platform-tools/adb devices
   displayName: Start Android emulator
+
+- bash: |
+   curl -Ls "https://get.maestro.mobile.dev" | bash
+   export PATH="$PATH":"$HOME/.maestro/bin"
+   maestro test flow.yaml
+  displayName: 'Bash Script'
